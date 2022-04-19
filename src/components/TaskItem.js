@@ -5,10 +5,16 @@ const TaskItem = props => {
     <li className="list-group-item">
       { props.task.title }
       <button type="button"
-              onClick={() => props.markDone(props.task)}
+              onClick={() => props.markRight(props.task)}
               className="btn btn-primary" style={{ float: 'right' }}>
-        Done
+        Right
         </button>
+       <button type="button"
+               onClick={() => props.markLeft(props.task)}
+               className="btn btn-primary" style={{ float: 'right' }}>
+         Left
+         </button>
+
     </li>
   )
 };

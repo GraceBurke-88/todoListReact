@@ -1,12 +1,48 @@
 import React from 'react';
-import {Row, Container, Card, Col} from 'react-bootstrap';
+
 
 import TaskItem from './TaskItem';
 
 class TaskList extends React.Component {
+
+
+  markRight = (task) => {
+    const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
+    let taskList = this.props.tasks;
+    //console.log("BLAH" + task.column)
+    let col = task.column
+    if (col === 'todo') {
+      task.column = "in-progress"
+    }
+    if (col === 'in-progress') {
+      task.column = "review"
+    }
+    if (col === 'review') {
+      task.column = "done"
+    }
+    this.props.onUpdateTaskList(taskList);
+  }
+  markLeft = (task) => {
+    const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
+    let taskList = this.props.tasks;
+    //console.log("BLAH" + task.column)
+    let col = task.column
+    if (col === 'in-progress') {
+      task.column = "todo"
+    }
+    if (col === 'review') {
+      task.column = "in-progress"
+    }
+    if (col === 'done') {
+      task.column = "review"
+    }
+    this.props.onUpdateTaskList(taskList);
+  }
+
+
   render() {
     const taskItems = this.props.tasks.map(task => {
-      return <TaskItem task={task} key={task.id} markDone={this.markDone} />
+      return <TaskItem task={task} key={task.id} markRight={this.markRight} markLeft={this.markLeft} />
     });
     let tasksTODO = [];
     let InProgress = [];
@@ -15,7 +51,7 @@ class TaskList extends React.Component {
     for (const obj of taskItems) {
       if (obj.props.task.column === 'todo') {
         tasksTODO.push(obj);
-        console.log(tasksTODO);
+        //console.log(tasksTODO);
       }
       else if (obj.props.task.column === 'in-progress') {
         InProgress.push(obj);
