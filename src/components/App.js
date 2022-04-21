@@ -2,7 +2,10 @@ import React from 'react';
 import axios from 'axios';
 
 import TaskList from './TaskList';
-import { HotelList } from './HotelList';
+import MoveTasks from './MoveTasks'
+
+import TaskList2  from './TaskList2';
+import {Card} from "./Card";
 //import AddTask from './AddTask';
 
 class App extends React.Component {
@@ -24,37 +27,20 @@ class App extends React.Component {
       });
   }
 
-  /*
-  onAddTask = (taskName) => {
-    let tasks = this.state.tasks;
-    tasks.push({
-      title: taskName,
-      id: this.state.tasks.length + 1,
-      type: 'task',
-      column: 'todo'
-    });
 
-
-
-    this.setState({ tasks });
-  }
-goes below div container
-<AddTask onSubmit={this.onAddTask} />
-   */
-
-  onUpdateTaskList = (newTaskList) => {
-    this.setState({ tasks: newTaskList });
-  }
 
   render() {
     return (
       <div className="container">
         <h1>To Do List</h1><hr/>
         <div className="container">
-          <HotelList />
+
+          <TaskList2 tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
         </div>
 
         <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
+
+
       </div>
     );
   }
