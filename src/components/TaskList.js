@@ -7,7 +7,7 @@ class TaskList extends React.Component {
 
 
   markRight = (task) => {
-    const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
+    //const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
     let taskList = this.props.tasks;
     //console.log("BLAH" + task.column)
     let col = task.column
@@ -23,7 +23,7 @@ class TaskList extends React.Component {
     this.props.onUpdateTaskList(taskList);
   }
   markLeft = (task) => {
-    const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
+    //const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
     let taskList = this.props.tasks;
     //console.log("BLAH" + task.column)
     let col = task.column
@@ -44,6 +44,7 @@ class TaskList extends React.Component {
     const taskItems = this.props.tasks.map(task => {
       return <TaskItem task={task} key={task.id} markRight={this.markRight} markLeft={this.markLeft} />
     });
+
     let tasksTODO = [];
     let InProgress = [];
     let InReview = [];

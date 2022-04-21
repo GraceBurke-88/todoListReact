@@ -2,7 +2,8 @@ import React from 'react';
 import axios from 'axios';
 
 import TaskList from './TaskList';
-import AddTask from './AddTask';
+import { HotelList } from './HotelList';
+//import AddTask from './AddTask';
 
 class App extends React.Component {
   state = {
@@ -23,6 +24,7 @@ class App extends React.Component {
       });
   }
 
+  /*
   onAddTask = (taskName) => {
     let tasks = this.state.tasks;
     tasks.push({
@@ -36,6 +38,9 @@ class App extends React.Component {
 
     this.setState({ tasks });
   }
+goes below div container
+<AddTask onSubmit={this.onAddTask} />
+   */
 
   onUpdateTaskList = (newTaskList) => {
     this.setState({ tasks: newTaskList });
@@ -44,7 +49,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <AddTask onSubmit={this.onAddTask} />
+        <h1>To Do List</h1><hr/>
+        <div className="container">
+          <HotelList />
+        </div>
+
         <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
       </div>
     );
