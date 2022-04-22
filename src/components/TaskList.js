@@ -48,8 +48,8 @@ class TaskList extends React.Component {
     for (const obj of taskItems) {
       if (obj.props.task.column === 'todo') {
         tasksTODO.push(obj);
-        tasksTODO.push(obj.props.task.column)
-        tasksTODO.push(obj.props.task.type)
+        //tasksTODO.push(obj.props.task.column)
+        //tasksTODO.push(obj.props.task.type)
         //console.log(tasksTODO);
       }
       else if (obj.props.task.column === 'in-progress') {
@@ -74,28 +74,14 @@ class TaskList extends React.Component {
         <div>
           <div className="container">
             <div className="row">
-              <div className="col-lg"><h3>ToDo</h3><br/>
-
-
-                <Card style={{ width: '18rem' }}>
-                  <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
-                    <Card.Text>
-                      Some quick example text to build on the card title and make up the bulk of
-                      the card's content.
-                    </Card.Text>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
-                  </Card.Body>
-                </Card>
+              <div className="col-lg" style={{background:'lightgrey'}}><h3>ToDo</h3><br/>
 
                 { tasksTODO }</div>
-              <div className="col-lg"><h3>In-Progress</h3><br/>
+              <div className="col-lg" style={{background:'grey'}}><h3>In-Progress</h3><br/>
                 { InProgress }</div>
-              <div className="col-lg"><h3>Review</h3><br/>
+              <div className="col-lg" style={{background:'lightgray'}}><h3>Review</h3><br/>
                 { InReview } </div>
-              <div className="col-lg"><h3>Done</h3><br/>
+              <div className="col-lg" style={{background:'gray'}}><h3>Done</h3><br/>
                 { Done }</div>
             </div>
             <div>

@@ -4,8 +4,8 @@ import axios from 'axios';
 import TaskList from './TaskList';
 import MoveTasks from './MoveTasks'
 
-import TaskList2  from './TaskList2';
-import MakeCard from './MakeCard';
+//import TaskList2  from './TaskList2';
+//import MakeCard from './MakeCard';
 //import CardList from './CardList'
 //import AddTask from './AddTask';
 
@@ -37,19 +37,7 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>To Do List</h1><hr/>
-        <div className="container">
-            <TaskList2 tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-        </div>
         <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
-
-
-
-          <MakeCard
-
-             // Card.Title="The Benefits of Green Apples"
-              //https://betterprogramming.pub/build-a-reusable-responsive-card-component-with-styled-components-3ca14933f7e5
-          />
-
       </div>
 
 
@@ -60,3 +48,6 @@ class App extends React.Component {
 
 
 export default App
+//   <div className="container">
+//            <TaskList2 tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+//         </div>
