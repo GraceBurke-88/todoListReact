@@ -5,7 +5,8 @@ import TaskList from './TaskList';
 import MoveTasks from './MoveTasks'
 
 import TaskList2  from './TaskList2';
-import {Card} from "./Card";
+import MakeCard from './MakeCard';
+//import CardList from './CardList'
 //import AddTask from './AddTask';
 
 class App extends React.Component {
@@ -26,6 +27,9 @@ class App extends React.Component {
         this.setState({ errorMessage: error.message });
       });
   }
+    onUpdateTaskList = (newTaskList) => {
+        this.setState({ tasks: newTaskList });
+    }
 
 
 
@@ -34,18 +38,25 @@ class App extends React.Component {
       <div className="container">
         <h1>To Do List</h1><hr/>
         <div className="container">
-
-          <TaskList2 tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
+            <TaskList2 tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
         </div>
-
         <TaskList tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList} />
 
 
+
+          <MakeCard
+
+             // Card.Title="The Benefits of Green Apples"
+              //https://betterprogramming.pub/build-a-reusable-responsive-card-component-with-styled-components-3ca14933f7e5
+          />
+
       </div>
+
+
     );
   }
 
 }
 
 
-export default App;
+export default App

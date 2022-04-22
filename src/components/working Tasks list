@@ -30,7 +30,7 @@ export default List;
 
 
 
-//Card.js
+//MakeCard.js
 import React from 'react';
 
 const Product = () => (

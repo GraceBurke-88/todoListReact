@@ -1,7 +1,40 @@
 import React from 'react';
 import TaskItem from './TaskItem';
+import Card from "react-bootstrap/Card";
 
 class TaskList extends React.Component {
+  markRight = (task) => {
+    const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
+    let taskList = this.props.tasks;
+    //console.log("BLAH" + task.column)
+    let col = task.column
+    if (col === 'todo') {
+      task.column = "in-progress"
+    }
+    if (col === 'in-progress') {
+      task.column = "review"
+    }
+    if (col === 'review') {
+      task.column = "done"
+    }
+    this.props.onUpdateTaskList(taskList);
+  }
+  markLeft = (task) => {
+    const taskIndex = this.props.tasks.findIndex(t => t.id === task.id);
+    let taskList = this.props.tasks;
+    //console.log("BLAH" + task.column)
+    let col = task.column
+    if (col === 'in-progress') {
+      task.column = "todo"
+    }
+    if (col === 'review') {
+      task.column = "in-progress"
+    }
+    if (col === 'done') {
+      task.column = "review"
+    }
+    this.props.onUpdateTaskList(taskList);
+  }
 
   render() {
     const taskItems = this.props.tasks.map(task => {
@@ -15,6 +48,8 @@ class TaskList extends React.Component {
     for (const obj of taskItems) {
       if (obj.props.task.column === 'todo') {
         tasksTODO.push(obj);
+        tasksTODO.push(obj.props.task.column)
+        tasksTODO.push(obj.props.task.type)
         //console.log(tasksTODO);
       }
       else if (obj.props.task.column === 'in-progress') {
@@ -28,24 +63,46 @@ class TaskList extends React.Component {
       }
 
     }
+    // <div className="col-lg"><h3>ToDo</h3><br/>
+    //                 { tasksTODO }</div>
 
+
+
+    console.log('hello')
     return (
       <ul className="task-list list-group">
         <div>
           <div className="container">
             <div className="row">
               <div className="col-lg"><h3>ToDo</h3><br/>
+
+
+                <Card style={{ width: '18rem' }}>
+                  <Card.Body>
+                    <Card.Title>Card Title</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted">Card Subtitle</Card.Subtitle>
+                    <Card.Text>
+                      Some quick example text to build on the card title and make up the bulk of
+                      the card's content.
+                    </Card.Text>
+                    <Card.Link href="#">Card Link</Card.Link>
+                    <Card.Link href="#">Another Link</Card.Link>
+                  </Card.Body>
+                </Card>
+
                 { tasksTODO }</div>
               <div className="col-lg"><h3>In-Progress</h3><br/>
                 { InProgress }</div>
               <div className="col-lg"><h3>Review</h3><br/>
-                { InReview }</div>
+                { InReview } </div>
               <div className="col-lg"><h3>Done</h3><br/>
                 { Done }</div>
             </div>
+            <div>
+
           </div>
         </div>
-
+        </div>
       </ul>
     )
   }

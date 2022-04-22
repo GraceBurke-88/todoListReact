@@ -2,23 +2,24 @@
 
 import React from 'react';
 import TaskItem from './TaskItem';
-import { MakeCard } from './Card';
+import MakeCard  from './MakeCard';
 
 import TaskList from "./TaskList";
 
 class TaskList2 extends React.Component {
 
     renderCards() {
-        return this.props.tasks.map((card, id) => (<MakeCard key={id} />
-        ));
+        //return this.props.tasks.map((card, id) => (<MakeCard key={id} />));
+        return this.props.tasks.map(task => {return <MakeCard task={task} key={task.id} />
+
+        });
     }
-
-
     render() {
 
-        const taskItems = this.props.tasks.map(task => {
-            return <TaskItem task={task} key={task.id} markRight={this.markRight} markLeft={this.markLeft} />
-        });
+        const taskItems = this.props.tasks.map(task => {return <TaskItem task={task} key={task.id} column={task.column}  />});
+
+        //console.log(col)
+
 
         return (
             <section>
@@ -29,6 +30,7 @@ class TaskList2 extends React.Component {
                 </div>
                 <div className='row'>
                     {this.renderCards()}
+
                 </div>
             </section>
         )
