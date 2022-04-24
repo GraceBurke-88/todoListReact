@@ -71,17 +71,16 @@ class TaskList extends React.Component {
     console.log('hello')
     return (
       <ul className="task-list list-group">
-        <div>
+        <div>`
           <div className="container">
             <div className="row">
-              <div className="col-lg" style={{background:'lightgrey'}}><h3>ToDo</h3><br/>
-
+              <div className="col" style={{background:'lightgrey'}}><br/><h3>ToDo</h3>
                 { tasksTODO }</div>
-              <div className="col-lg" style={{background:'grey'}}><h3>In-Progress</h3><br/>
+              <div className="col" style={{background:'#f2f2f2'}}><br/><h3>In-Progress</h3>
                 { InProgress }</div>
-              <div className="col-lg" style={{background:'lightgray'}}><h3>Review</h3><br/>
+              <div className="col" style={{background:'lightgray'}}><br/><h3>Review</h3>
                 { InReview } </div>
-              <div className="col-lg" style={{background:'gray'}}><h3>Done</h3><br/>
+              <div className="col" style={{background:'#f2f2f2'}}><br/><h3>Done</h3>
                 { Done }</div>
             </div>
             <div>

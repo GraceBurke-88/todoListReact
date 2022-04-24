@@ -3,11 +3,11 @@ import Card from 'react-bootstrap/Card';
 
 const TaskItem = props => {
   return (
-    <div>
-      <Card style={{ width: '14rem' }}>
+    <div style={{min_height:'0', margin:'1rem'}}>
+      <Card>
           <Card.Body>
-          <Card.Title> { props.task.title } </Card.Title>
-          <Card.Text> ID: { props.task.id }  <br/> { props.task.type }</Card.Text> <br/>
+          <Card.Title > { props.task.title } </Card.Title>
+          <Card.Text> ID: { props.task.id }  <br/> Type: { props.task.type }</Card.Text> <br/>
         { props.task.column !== "done" ?
             <button type="button"
               onClick={() => props.markRight(props.task)}
