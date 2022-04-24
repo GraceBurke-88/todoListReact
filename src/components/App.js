@@ -2,12 +2,6 @@ import React from 'react';
 import axios from 'axios';
 
 import TaskList from './TaskList';
-import MoveTasks from './MoveTasks'
-
-//import TaskList2  from './TaskList2';
-//import MakeCard from './MakeCard';
-//import CardList from './CardList'
-//import AddTask from './AddTask';
 
 class App extends React.Component {
   state = {
@@ -31,8 +25,6 @@ class App extends React.Component {
         this.setState({ tasks: newTaskList });
     }
 
-
-
   render() {
     return (
       <div className="container">
@@ -45,9 +37,4 @@ class App extends React.Component {
   }
 
 }
-
-
 export default App
-//   <div className="container">
-//            <TaskList2 tasks={this.state.tasks} onUpdateTaskList={this.onUpdateTaskList}/>
-//         </div>
