@@ -1,7 +1,7 @@
 self.__precacheManifest = [
   {
-    "revision": "952524ac0a79d9cf11c7",
-    "url": "/todoListReact/static/js/main.1025cbdb.chunk.js"
+    "revision": "744b12b556342dd5c3e0",
+    "url": "/todoListReact/static/js/main.526f9371.chunk.js"
   },
   {
     "revision": "a9399c68d3527f9c8962",
@@ -12,7 +12,7 @@ self.__precacheManifest = [
     "url": "/todoListReact/static/js/2.538b53ae.chunk.js"
   },
   {
-    "revision": "c4c46c25c90f92b7d29aec9fdb76bfb7",
+    "revision": "061d07de80b0c9287887c7bd5c430ba5",
     "url": "/todoListReact/index.html"
   }
 ];
